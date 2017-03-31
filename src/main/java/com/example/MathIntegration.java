@@ -8,13 +8,19 @@ import java.util.function.Predicate;
 public class MathIntegration {
 
   public static void main(String[] args) {
-    double d1 = integrate(x -> x, 10, 100, 1000);
+	  
+	  Integrable i1 = x -> x;
+	  Integrable i2 = x -> x * x;
+	  Integrable i3 = x -> Math.pow(x, 3);
+	  Integrable i4 = Math::sin;
+	  
+    double d1 = integrate(i1, 10, 100, 1000);
     System.out.println(d1);
-    double d2 = integrate(x -> x * x, 10, 100, 1000);
+    double d2 = integrate(i2, 10, 100, 1000);
     System.out.println(d2);
-    double d3 = integrate(x -> Math.pow(x, 3), 10, 100, 1000);
+    double d3 = integrate(i3, 10, 100, 1000);
     System.out.println(d3);
-    double d4 = integrate(Math::sin, 10, 100, 1000);
+    double d4 = integrate(i4, 10, 100, 1000);
     System.out.println(d4);
 
     Predicate p ;
